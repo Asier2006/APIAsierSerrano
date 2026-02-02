@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="APIAsierSerrano.MainPage">
+
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <Button Text="Consulta"
+                x:Name="BtnConsulta"
+                Clicked="BtnConsulta_Clicked"/>
+
+            <HorizontalStackLayout Spacing="10">
+                <Entry x:Name="FiltroEntry"
+                   Placeholder="Filtrar por inicial"
+                   MaxLength="1"
+                   WidthRequest="120"/>
+                <Button Text="Filtrar"
+                    Clicked="BtnFiltrar_Clicked"/>
+            </HorizontalStackLayout>
+
+            <Button Text="Generar informe"
+                x:Name="BtnInforme"
+                Clicked="BtnInforme_Clicked"/>
+
+            <Label x:Name="ErrorLabel"
+               TextColor="Red"
+               FontAttributes="Bold"/>
+
+            <CollectionView x:Name="UsuariosList">
+                <CollectionView.ItemTemplate>
+                    
+                    <DataTemplate>
+                        <Grid ColumnDefinitions="*,*"
+                          Padding="5">
+                            <Label Text="{Binding name}" Grid.Column="0"/>
+                            <Label Text="{Binding email}" Grid.Column="1"/>
+                        </Grid>
+                    </DataTemplate>
+                    
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+
+</ContentPage>
+
